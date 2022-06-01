@@ -1,0 +1,16 @@
+body {
+    background-color: antiquewhite;
+}
+
+section#index {
+    min-height: 100vh;
+    position: relative;
+}
+
+section#index .row {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+}

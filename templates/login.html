@@ -15,10 +15,23 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h1 class="">DOJO LOGIN</h1>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <h1>DOJO LOGIN</h1>
                     <form action="{{ url_for('login') }}" method="post">
                         <div class="form-floating mb-3">
-                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            {% if context.email %}
+                                <input type="email" name="email" value="{{ context.email }}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            {% else %}
+                                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            {% endif %}
                             <label for="floatingInput">Email</label>
                         </div>
                         <div class="form-floating mb-3">

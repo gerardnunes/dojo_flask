@@ -1,8 +1,9 @@
-import json
-from flask import Flask, request, render_template
+import os
+from flask import Flask, redirect, request, render_template, flash, url_for 
 from markupsafe import escape
 
 app= Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY')
 
 @app.route("/")
 def index():
@@ -13,9 +14,12 @@ def login():
     if request.method == 'POST':
         form = dict(request.form)
         app.logger.info(f"{form}")
-        return render_template('login.html')
+        flash(f"Usuário '{form['email']}' não encontrado", 'danger')
+        context = {'email': form['email']}
+        return render_template('login.html', context=context)
 
-    return render_template('login.html')
+
+    return render_template('login.html', context={})
 
 
 @app.route("/teste/<numb>")

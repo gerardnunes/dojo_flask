@@ -27,9 +27,9 @@
                     {% block body %}{% endblock %}
                     
                     <font face="OCR A std" color="black" >
-                        <h1>DOJO LOGIN</h1>
+                        <h1>DOJO SIGINUP</h1>
                     </font>
-                    <form action="{{ url_for('login') }}" method="post">
+                    <form action="{{ url_for('signup') }}" method="post">
                         <div class="form-floating mb-3">
                             {% if context.email %}
                                 <input type="email" name="email" value="{{ context.email }}" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -42,8 +42,12 @@
                             <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Senha</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                        <a class="btn btn-link" href="{{ url_for('signup') }}">Cadastrar</a>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="confirm-password" class="form-control" id="confirm-floatingPassword" placeholder="Confirm password">
+                            <label for="confirm-floatingPassword">Confirmar senha</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <a class="btn btn-link" href="{{ url_for('login') }}">Voltar</a>
                     </form>
                 </div>
             </div>

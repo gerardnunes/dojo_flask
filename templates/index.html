@@ -15,7 +15,19 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h1 class="">DOJO INDEX</h1>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                      <font color="black">
+                        <h1 class="">BEM VINDO</h1>
+                      </font>
+                   
                     <a class="btn btn-primary" href="{{ url_for('login') }}">Entrar</a>
                 </div>
             </div>

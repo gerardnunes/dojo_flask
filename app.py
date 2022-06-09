@@ -1,4 +1,8 @@
+import email
+from multiprocessing import reduction
 import os
+from pydoc import pipepager
+from winreg import ExpandEnvironmentStrings
 from flask import Flask, redirect, request, render_template, flash, url_for 
 from markupsafe import escape
 
@@ -11,10 +15,31 @@ def index():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html', context={})
+    if request.method == 'GET':
+         return render_template('signup.html', context={})
+
+    form = dict(request.form)
+    error_message = validate_form_signup(form) # => error_message = 'Email é obrigatório' | 'Email não encontrado' | 'Senha inválida' | None
+    if error_message:
+        flash(error_message, 'danger')
+        return render_template('signup.html', context={'email': form['email']})
+
+    flash(f"Seja bem-vindo, {form['email']}!", 'success')
+    return redirect(url_for('index'))
+
+
+
+
 
 def validate_form_signup(form):
-    pass
+
+    if form['email'].endswith('@gmail.com') == False: 
+        return 'email precisa terminar'
+
+    else:
+        return 'deu merda'
+        return redirect(url_for('signup'))
+
     
 @app.route('/login', methods=['GET', 'POST'])
 def login():

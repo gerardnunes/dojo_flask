@@ -1,10 +1,13 @@
-import email
-from multiprocessing import reduction
+
+
 import os
 from pydoc import pipepager
 from winreg import ExpandEnvironmentStrings
 from flask import Flask, redirect, request, render_template, flash, url_for 
 from markupsafe import escape
+
+sql_email= []
+sql_password= []
 
 app= Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
@@ -15,6 +18,19 @@ def index():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
+
+
+    def users():
+        form = dict(request.form)
+        request.form['semail']
+        request.form['spassword']
+        sql_users={
+            'user': request.form['semail'],
+            'senha': request.form['spassword']
+
+        }
+
+    form = dict(request.form)
     if request.method == 'GET':
          return render_template('signup.html', context={})
 
@@ -22,48 +38,106 @@ def signup():
     error_message = validate_form_signup(form) # => error_message = 'Email é obrigatório' | 'Email não encontrado' | 'Senha inválida' | None
     if error_message:
         flash(error_message, 'danger')
-        return render_template('signup.html', context={'email': form['email']})
+        #usa no terminal os bag abaixo!! so pra testar mesmo
 
-    flash(f"Seja bem-vindo, {form['email']}!", 'success')
+
+
+
+
+      
+        sql_users={
+            'user': request.form['semail'],
+            'senha': request.form['spassword']
+
+        }
+
+
+
+        sql_password.append(request.form['spassword'])
+        sql_email.append(request.form['semail'])
+
+
+
+        
+        return render_template('signup.html', context={'semail': form['semail']})
+
+    flash(f"Seja bem-vindo, {form['semail']}!", 'success')
     return redirect(url_for('index'))
 
+
+
+@app.route('/catalog',  methods=['GET', 'POST'])
+
+def catalog():
+    form = dict(request.form)
+
+    
+    if request.method == 'GET':
+        return render_template('catalog.html')
+
+    flash(f"Seja bem-vindo, {form['semail']}!", 'success')
+
+    
 
 
 
 
 def validate_form_signup(form):
 
-    if form['email'].endswith('@gmail.com') == False: 
-        return 'email precisa terminar'
 
-    else:
-        return 'deu merda'
-        return redirect(url_for('signup'))
+    form = dict(request.form)
+
+
+    
+
+    if not form['semail'].endswith('@gmail.com'):
+        return 'email precisa terminar em @gmail.com'
+    
+    if "@" and "*" not in form['spassword']:
+        return 'senha nescessita de caracteres @, *' 
 
     
 @app.route('/login', methods=['GET', 'POST'])
+
+        
+
 def login():
+
+
     if request.method == 'GET':
         return render_template('login.html', context={})
 
     form = dict(request.form)
-    error_message = validate_form_login(form) # => error_message = 'Email é obrigatório' | 'Email não encontrado' | 'Senha inválida' | None
+    
+    error_message =  validate_sql(form) # => error_message = 'Email é obrigatório' | 'Email não encontrado' | 'Senha inválida' | None
     if error_message:
         flash(error_message, 'danger')
-        return render_template('login.html', context={'email': form['email']})
+        return render_template('login.html', context={'semail': form['semail']})
 
-    flash(f"Seja bem-vindo, {form['email']}!", 'success')
-    return redirect(url_for('index'))
+    flash(f"Seja bem-vindo, {form['semail']}!", 'success')
+    return redirect(url_for('catalog'))
 
-def validate_form_login(form):
-    if not form['email']:
-        return 'Email é obrigatório'
-    
-    if form['email'] != 'gerard@email':
-        return 'Email não encontrado'
 
-    if form['password'] != '123456':
-        return 'Senha inválida'
+
+
+def validate_sql(form):
+
+    sql_users= {
+        'user': 'nalu@gmail.com',
+        'senha': '5568@*',
+        'user': 'gerard@gmail.com',
+        'senha': '5568@*'
+
+    }
+
+    if not form['semail']:
+        return 'email é obrigatorio'
+
+    if form['semail'] != 'nalu@gmail.com' and 'gerard@gmail.com': 
+        return 'email nao encontrado, ja fez o nosso cadrasto?'
+
+    if form['spassword'] != '5568@*':
+        return 'senha invalida.'
 
 
 # def login(): v2

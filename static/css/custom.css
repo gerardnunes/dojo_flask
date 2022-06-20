@@ -14,3 +14,23 @@ section#index .row {
     transform: translate(-50%, -50%);
     width: auto;
 }
+
+
+.card {
+    text-align: center;
+}
+.card-body{
+    text-align: center;
+}
+.card-title{
+    text-align: center;
+}
+.card-text{
+    text-align: center;
+}
+.imagemintro{
+    height: 100%;
+    width: 100%;
+    transform: translate(500x, 20%);
+    
+}

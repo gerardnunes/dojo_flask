@@ -68,16 +68,18 @@ def signup():
 
 @app.route('/catalog',  methods=['GET', 'POST'])
 
-def catalog():
-    form = dict(request.form)
 
+
+def catalog():
+
+    form = request.form.get("input_value")
+
+    if form == "google":
+        return redirect(url_for("index"))
     
     if request.method == 'GET':
         return render_template('catalog.html')
-
-    flash(f"Seja bem-vindo, {form['semail']}!", 'success')
-
-    
+ 
 
 
 

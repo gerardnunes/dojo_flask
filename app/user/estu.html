@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud teste</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <h1 style="text-align: center;">teste crud </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>nome</th>
+                        <th>idade</th>
+                        <th>açoes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for i in user }
+                    <tr>
+                        <td>{{i.name}}</td>
+                        <td>{{i.fullname}}</td>
+                        <td>{{i.id}}</td>
+                        <td>
+                            <a href="/edit/{{i.id}}">editar</a>
+                            <a href="/delete/{{i.id}}">excluir</a>
+                        </td>
+                    </tr>
+                    {{ %endfor%}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

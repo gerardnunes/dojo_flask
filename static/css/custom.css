@@ -1,5 +1,6 @@
 body {
-    background-color: rgba(109, 27, 109, 0.979);
+    background-color:black
+    
 }
 
 section#index {
@@ -15,22 +16,131 @@ section#index .row {
     width: auto;
 }
 
-
-.card {
-    text-align: center;
-}
-.card-body{
-    text-align: center;
-}
-.card-title{
-    text-align: center;
-}
-.card-text{
-    text-align: center;
-}
 .imagemintro{
     height: 100%;
     width: 100%;
     transform: translate(500x, 20%);
     
 }
+
+#body{
+    background-image: scr="https://th.bing.com/th/id/R.99c69ac5675ea31eecf2ee7527aa2207?rik=ANgbM%2bPdXt%2bd%2fw&pid=ImgRaw&r=0"
+}
+
+#rodape{
+    
+
+    height: 50;
+    width: 1400;
+
+    background-color: rgb(0, 0, 0);
+}
+
+#menu{
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+}
+
+.bg-light{
+    height: 75px;
+    box-shadow: 10px 10px 20px rgb(75, 75, 75);
+}
+
+.container-fluid{
+    position: relative;
+    opacity: 0;
+    transform: matrix3d(20);
+    transition: 1s;
+}
+
+.container-fluid:hover{
+    opacity: 1;
+    transform: matrix(0);
+}
+
+.bg-light{
+    
+    position: relative;
+    height: 60;
+    transform: translateZ(20);
+    opacity: 1;
+    transition: 1s;
+
+}
+
+.bg-light:hover{
+    height: 85;
+    transform: translateZ(0);
+    opacity: 1;
+}
+
+.a{
+    opacity: 1;
+}
+
+#navbar-expand-lg{
+
+
+    background-color: rgb(9, 9, 9);
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+
+
+}
+
+.container .card{
+    padding: 0%;
+    position: relative;
+    display: inline-block;
+    background-color: rgb(57, 57, 57);
+    margin: 30px;
+    width: 200px;
+    height: 300px;
+    position: relative;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(75, 75, 75);
+    border-left: 1px solid rgb(75, 75, 75);
+    box-shadow: 20px 20px 50px rgb(36, 36, 36);
+    overflow: hidden;
+
+}
+
+.container .card .content{
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 1s;
+}
+
+.container .card:hover .content{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.container .card .content h5{
+    color: whitesmoke;
+}
+
+.container .card .content p{
+    color: whitesmoke;
+}
+
+.container .card .content a{
+    color: whitesmoke;
+}
+
+.btn-dark{
+
+    color: beige;
+}
+
+

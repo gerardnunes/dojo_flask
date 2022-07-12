@@ -1,0 +1,80 @@
+body {
+    background-color:rgb(82, 82, 82)
+    
+}
+
+
+section#index {
+    min-height: 100vh;
+    position: relative;
+}
+
+section#index .row {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+}
+
+.card_login{
+    text-align: center;
+    padding: 20%;
+    position: relative;
+    display: inline-block;
+    background-color: rgb(57, 57, 57);
+    margin: 30px;
+    width: 320px;
+    height: 360px;
+    position: relative;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(75, 75, 75);
+    border-left: 1px solid rgb(75, 75, 75);
+    box-shadow: 20px 20px 50px rgb(36, 36, 36);
+    overflow: hidden;
+
+}
+
+.card{
+    text-align: center;
+    padding: 20%;
+    position: relative;
+    display: inline-block;
+    background-color: rgb(57, 57, 57);
+    margin: 30px;
+    width: 360px;
+    height: 400px;
+    position: relative;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(75, 75, 75);
+    border-left: 1px solid rgb(75, 75, 75);
+    box-shadow: 20px 20px 50px rgb(36, 36, 36);
+    overflow: hidden;
+
+}
+.card .content {
+    position: relative;
+    padding: 0%;
+    transform: translateZ(100px);
+    transition: 1s;
+    opacity: 0;
+
+}
+
+.card:hover .content{
+    transform: translateZ(0px);
+    opacity: 1;
+}
+
+.imagemintro{
+    
+    height: 100%;
+    width: 100%;
+    transform: translate(500x, 20%);
+    
+}
+

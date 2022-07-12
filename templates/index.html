@@ -5,33 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <!-- JavaScript Bundle with Popper -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <title>DOJO FLASK</title>
 </head>
 <body>
-    <section id="index">
+    <img src="https://pt.vecteezy.com/arte-vetorial/2623583-abstrato-preto-forma-geometrica-fundo-com-linha-diagonal-textura-design-para-apresentacao-banner-capa-web-folheto-cartao-poster-jogo-textura-slide-e-powerpoint-ilustracao-vetorial" alt="">
+    <section id="index" >
         <div class="container">
+            <img src="" alt="">
             <div class="row">
-                <div class="col text-center">
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                        {% if messages %}
-                            {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}" role="alert">
-                                {{ message }}
-                            </div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-                      <font color="black">
-                        <h1 class="">BEM VINDO</h1>
+                <div class="card" data-tilt>
+                    <div class="content">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}" role="alert">
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                      <font color="white">
+                        <h3 class="">BEM VINDO</h3>
                       </font>
-                   
-                    <a class="btn btn-primary" href="{{ url_for('login') }}">Entrar</a>
+                      <div class="button_id">
+                        <a  class="btn btn-dark" href="{{ url_for('login') }}">Entrar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.babel.min.js"></script>
+    <script>
+
+    </script>
+
 </body>
 </html>

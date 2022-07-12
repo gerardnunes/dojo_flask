@@ -1,0 +1,9 @@
+FLASK_APP=app/core
+FLASK_RUN_HOST=localhost
+FLASK_RUN_PORT=5000
+FLASK_ENV=homolog
+FLASK_DEBUG=True
+b
+SQLALCHEMY_DATABASE_URI=sqlite:////tmp/db.sqlite3
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+SECRET_KEY=insecure-s3cr3t-k3y

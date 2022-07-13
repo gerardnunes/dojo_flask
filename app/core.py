@@ -1,9 +1,8 @@
-import logging.config
 import os
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-
+from app.user.views import user_bp
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -19,5 +18,7 @@ def create_app(test_config=None):
     with app.app_context():
         db.init_app(app)
         migrate.init_app(app, db)
+
+    app.register_blueprint(user_bp)
 
     return app
